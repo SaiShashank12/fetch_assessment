@@ -3,7 +3,7 @@ import urllib.request as request
 from fetch_assessment.logging import logger
 from fetch_assessment.utils.common import get_size
 from pathlib import Path
-from fetch_assessment.enetity import DataIngestionConfig
+from fetch_assessment.entity import DataIngestionConfig
 
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):

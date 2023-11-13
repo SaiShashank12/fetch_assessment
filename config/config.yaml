@@ -5,3 +5,8 @@ data_ingestion:
   source_URL: "https://fetch-hiring.s3.amazonaws.com/machine-learning-engineer/receipt-count-prediction/data_daily.csv"
   local_data_file: artifacts/data_ingestion/data_daily.csv
   unzip_dir: artifacts/data_ingestion
+
+feature_engineering:
+  data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/data_daily.csv

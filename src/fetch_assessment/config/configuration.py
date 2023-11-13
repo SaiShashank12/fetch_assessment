@@ -1,6 +1,6 @@
 from fetch_assessment.constants import *
 from fetch_assessment.utils.common import read_yaml, create_directories
-from fetch_assessment.enetity import (DataIngestionConfig)
+from fetch_assessment.entity import (DataIngestionConfig,FeatureengineeringConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -30,4 +30,15 @@ class ConfigurationManager:
 
         return data_ingestion_config
     
+    def get_data_transformation_config(self) -> FeatureengineeringConfig:
+        config = self.config.feature_engineering
 
+        create_directories([config.root_dir])
+
+        feature_eng_config = FeatureengineeringConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            #tokenizer_name = config.tokenizer_name
+        )
+
+        return feature_eng_config
