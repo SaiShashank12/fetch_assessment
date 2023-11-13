@@ -19,10 +19,10 @@ class Featureengineering:
         data['Lag_1'] = data['Receipt_Count'].shift(1)
         data['Lag_2'] = data['Receipt_Count'].shift(2)
         data['Lag_3'] = data['Receipt_Count'].shift(3)
-        
+        data.dropna(inplace=True)
         return data 
 
     def features(self):
         data=pd.read_csv(self.config.data_path)
         data_transformed=self.add_feature(data)
-        data_transformed.to_csv(os.path.join(self.config.root_dir,"data.csv"))       
+        data_transformed.to_csv(os.path.join(self.config.root_dir,"data.csv"),index=False)       

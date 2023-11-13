@@ -1,3 +1,8 @@
 splitingparameters:
   look_back: 7
   split: .2
+
+TrainingArguments:
+  epoch: 100
+  batch_size: 10
+  look_back: 7

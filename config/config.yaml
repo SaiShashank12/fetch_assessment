@@ -11,5 +11,11 @@ feature_engineering:
   data_path: artifacts/data_ingestion/data_daily.csv
 
 spliting_data:
-  root_dir: artifacts/data_splting_data
+  root_dir: artifacts/data_spliting_data
   data_path: artifacts/data_transformation/data.csv
+  
+
+model_training:
+  root_dir: artifacts/model_training
+  data_path: artifacts/data_spliting_data
+  model_path: artifacts/model_training/model
