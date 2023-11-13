@@ -19,3 +19,12 @@ class SplitingDataConfig:
     data_path: Path
     look_back: int
     split:float
+
+@dataclass(frozen=True)
+class TrainingModelConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    epoch: int
+    batch_size: int
+    look_back: int
