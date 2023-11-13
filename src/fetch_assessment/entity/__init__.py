@@ -12,3 +12,10 @@ class DataIngestionConfig:
 class FeatureengineeringConfig:
     root_dir: Path
     data_path: Path
+
+@dataclass(frozen=True)
+class SplitingDataConfig:
+    root_dir: Path
+    data_path: Path
+    look_back: int
+    split:float

@@ -1,1 +1,3 @@
-key: value
+splitingparameters:
+  look_back: 7
+  split: .2

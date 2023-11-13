@@ -7,6 +7,9 @@ data_ingestion:
   unzip_dir: artifacts/data_ingestion
 
 feature_engineering:
-  data_transformation:
   root_dir: artifacts/data_transformation
   data_path: artifacts/data_ingestion/data_daily.csv
+
+spliting_data:
+  root_dir: artifacts/data_splting_data
+  data_path: artifacts/data_transformation/data.csv
