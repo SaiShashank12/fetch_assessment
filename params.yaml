@@ -4,5 +4,5 @@ splitingparameters:
 
 TrainingArguments:
   epoch: 100
-  batch_size: 10
+  batch_size: 2
   look_back: 7

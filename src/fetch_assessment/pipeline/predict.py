@@ -31,6 +31,6 @@ class PredictionPipleline:
             temp_shape = np.zeros((len(future_predictions), current_batch.shape[1]))
             temp_shape[:, 0] = future_predictions
             future_predictions_rescaled = scaler.inverse_transform(temp_shape)[:, 0]
-
+        
         return future_predictions_rescaled.tolist()
 
