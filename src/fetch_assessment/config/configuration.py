@@ -74,7 +74,7 @@ class ConfigurationManager:
         return traing_model_config
     
     def get_evaluating_model_config(self) ->  EvaluatingModelConfig:
-        config = self.config.model_training
+        config = self.config.model_evaluating
         create_directories([config.root_dir])
 
         traing_model_config =  EvaluatingModelConfig(

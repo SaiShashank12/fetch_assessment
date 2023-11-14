@@ -89,7 +89,8 @@ class ModelEvaluator:
         plt.ylabel('Values')
         plt.title('Comparison of Train, Test and Predicted Data')
         plt.legend()
-        plt.show()
+        plt.savefig(os.path.join(self.config.root_dir,"training_image.png"))
+        #plt.show()
 
 
 
