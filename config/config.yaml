@@ -19,3 +19,9 @@ model_training:
   root_dir: artifacts/model_training
   data_path: artifacts/data_spliting_data
   model_path: artifacts/model_training/model
+
+
+model_evaluating:
+  root_dir: artifacts/model_evaulting
+  data_path: artifacts/data_spliting_data
+  model_path: artifacts/model_training/model

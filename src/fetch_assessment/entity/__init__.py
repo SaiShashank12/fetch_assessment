@@ -28,3 +28,10 @@ class TrainingModelConfig:
     epoch: int
     batch_size: int
     look_back: int
+
+
+@dataclass(frozen=True)
+class EvaluatingModelConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path

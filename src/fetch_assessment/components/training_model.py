@@ -45,10 +45,8 @@ class ModelTrainer:
         # Compile the model
         model.compile(optimizer='adam', loss='mean_squared_error')
 
-        # Early stopping callback
-        early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=10, restore_best_weights=True)
-
+        
         # Train the model
-        history = model.fit(X_train, y_train, epochs=100, batch_size=32, validation_split=0.2, callbacks=[early_stopping])
+        history = model.fit(X_train, y_train, epochs=self.config.epoch, batch_size=self.config.batch_size, validation_split=0.2, callbacks=[early_stopping])
         model.save(self.config.model_path)
         

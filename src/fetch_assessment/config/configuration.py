@@ -1,6 +1,6 @@
 from fetch_assessment.constants import *
 from fetch_assessment.utils.common import read_yaml, create_directories
-from fetch_assessment.entity import (DataIngestionConfig,FeatureengineeringConfig,SplitingDataConfig,TrainingModelConfig)
+from fetch_assessment.entity import (DataIngestionConfig,FeatureengineeringConfig,SplitingDataConfig,TrainingModelConfig,EvaluatingModelConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -69,6 +69,18 @@ class ConfigurationManager:
             epoch=params.epoch,
             batch_size=params.batch_size,
             look_back=params.look_back            
+                    )
+
+        return traing_model_config
+    
+    def get_evaluating_model_config(self) ->  EvaluatingModelConfig:
+        config = self.config.model_training
+        create_directories([config.root_dir])
+
+        traing_model_config =  EvaluatingModelConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            model_path=config.model_path,
                     )
 
         return traing_model_config
