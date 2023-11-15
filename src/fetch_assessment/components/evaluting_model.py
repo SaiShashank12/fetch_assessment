@@ -8,13 +8,14 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import numpy as np
 import joblib
+import json
 import os
 
 
 class ModelEvaluator:
     def __init__(self, config: EvaluatingModelConfig):
         self.config = config
-
+        self.result={}
     
     def evaluating(self):
         import numpy as np
@@ -35,6 +36,8 @@ class ModelEvaluator:
         # Calculating RMSE
         rmse = np.sqrt(mean_squared_error(y_train, y_pred))
         print("Train RMSE:", rmse)
+        
+        self.result["Train_RMSE"] = rmse
 
         # Reshape y_pred_scaled for inverse transformation
         temp_shape = np.zeros((len(y_pred), scaled_data.shape[1]))
@@ -50,13 +53,14 @@ class ModelEvaluator:
         rmse = np.sqrt(mean_squared_error(y_train_rescaled, y_pred_train))
         print("Train RMSE on original scale:", rmse)
         
+        self.result["Train_original_RMSE"]=rmse
         # Predicting on the test set
         y_pred = model.predict(X_test) 
         print(y_pred.shape,y_test.shape)
         # Calculating RMSE
         rmse = np.sqrt(mean_squared_error(y_test, y_pred))
         print("Test RMSE:", rmse)
-        
+        self.result["Test_RMSE"]=rmse
         # Reshape y_pred_scaled for inverse transformation
         temp_shape = np.zeros((len(y_pred), scaled_data.shape[1]))
         temp_shape[:, 0] = y_pred[:, 0]
@@ -70,7 +74,11 @@ class ModelEvaluator:
         # Calculating RMSE on the rescaled data
         rmse = np.sqrt(mean_squared_error(y_test_rescaled, y_pred_test))
         print("Test RMSE on original scale:", rmse)
-        
+        self.result["Test_original_RMSE"]=rmse
+
+        with open(os.path.join(self.config.root_dir,'result.json'), 'w') as file:
+            json.dump(data, file, indent=4)
+
         return y_train_rescaled, y_test_rescaled,y_pred_train,y_pred_test
 
     def plot_predictions(self, y_true, y_pred,file_name):

@@ -30,7 +30,13 @@ if st.button("Train Model"):
         with col2:
             test_image = Image.open(test_image_path)
             st.image(test_image, caption="Testing Results")
-
+        result_json_path = os.path.join(PredictionPipleline().config.root_dir, "result.json")
+        if os.path.exists(result_json_path):
+            with open(result_json_path, "r") as file:
+                result_data = json.load(file)
+            st.json(result_data)
+        else:
+            st.warning("result.json not found.")
         st.success("Training successful!")
     except Exception as e:
         st.error(f"Error Occurred: {e}")
