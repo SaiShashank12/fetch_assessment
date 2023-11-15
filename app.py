@@ -36,6 +36,7 @@ if st.button("Train Model"):
         st.error(f"Error Occurred: {e}")
 
 # Prediction section
+#get 
 n_days = st.number_input("Enter number of days for prediction", min_value=1, max_value=100, step=1)
 if st.button("Predict"):
     try:
