@@ -4,9 +4,21 @@ from fastapi.responses import FileResponse, JSONResponse
 import os
 import streamlit as st
 from PIL import Image
+import json
 
 # Title
 st.title("Receipt Count Prediction")
+
+def display_collapsible_json(data, level=0):
+    if isinstance(data, dict):
+        for key, value in data.items():
+            with st.expander(key, expanded=False):
+                display_collapsible_json(value, level + 1)
+    elif isinstance(data, list):
+        for item in data:
+            display_collapsible_json(item, level + 1)
+    else:
+        st.write(data)
 
 # Training section
 if st.button("Train Model"):
@@ -32,9 +44,11 @@ if st.button("Train Model"):
             st.image(test_image, caption="Testing Results")
         result_json_path = os.path.join(PredictionPipleline().config.root_dir, "result.json")
         if os.path.exists(result_json_path):
-            with open(result_json_path, "r") as file:
+            with open(result_json_path, 'r') as file:
                 result_data = json.load(file)
-            st.json(result_data)
+                display_collapsible_json(result_data)
+
+
         else:
             st.warning("result.json not found.")
         st.success("Training successful!")
