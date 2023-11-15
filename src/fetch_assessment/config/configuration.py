@@ -25,7 +25,7 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             source_URL=config.source_URL,
             local_data_file=config.local_data_file,
-            unzip_dir=config.unzip_dir 
+            alt_source_URL=config.alt_source_URL 
         )
 
         return data_ingestion_config
