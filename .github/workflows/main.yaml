@@ -85,7 +85,7 @@ jobs:
       - name: Pull latest images
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
-         
+      #new ch
       # - name: Stop and remove container if running
       #   run: |
       #    docker ps -q --filter "name=timeseriesforecasting" | grep -q . && docker stop timeseriesforecasting && docker rm -fv timeseriesforecasting
