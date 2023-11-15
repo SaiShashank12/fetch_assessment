@@ -1,4 +1,92 @@
-# End to end Text-Summarizer-Project
+# Fetch assessment (Bonus CI/CD implementation)
+
+I would like to begin by expressing my gratitude for this coding challenge. I have put my abilities to the test in this challenge. I have devised the most adaptable and modular strategy possible to address this challenge. 
+
+In addition to applying the MLops principle, I have implemented a comprehensive end-to-end solution for this issue utilizing the CI/CD infrastructure. Therefore, allow me to walk you through the code.
+
+Prior to that, allow me to elucidate the reasoning that underpins my proposed solution.
+
+## Proposed Solution Overview and Rationalization
+
+When I got hands on the data I had the did 4 basic steps in ML which are as follows:
+
+1. **Exploratory Data Analysis:**
+<br/>
+    - The first thing I did was to do intial analysis of the from that I go below graphs.
+    ![EDA1](images\EDA_graph1.png) 
+    
+    ![EDA2](images\Eda2.png)
+
+    - In my analysis of the provided images, I observed:
+        <br/>
+        1. **Trend Analysis**: The first image showed an upward trend in Receipt_Count over the year, indicating an average growth in receipt counts.
+        2. **Seasonal Decomposition**:
+        - **Trend Component**: There was a clear upward trajectory, suggesting positive growth in the dataset.
+        - **Seasonal Component**: Regular fluctuations were present but relatively small compared to the overall Receipt_Count.
+        - **Residual Component**: The residuals were stable with no apparent patterns, indicating effective capture of the main series components.
+        For forecasting:
+        - **Trend Consideration**: I considered models like Holt-Winters or ARIMA to account for the upward trend.
+        - **Seasonality**: Given the seasonal fluctuations, I found a model like SARIMA or seasonal exponential smoothing advisable.
+        - **Model Simplicity**: The lack of patterns in residuals suggested that a simpler model might suffice.
+<br/>
+    - I approached forecasting with caution, mindful of potential overfitting, and validated the model using out-of-sample testing or cross-validation, considering we had only one seasonal cycle in the data.
+<br/>
+2. **Feature Engineering**:
+<br/>
+    - Due to the fact that there was only one feature, I resolved to add the following:  
+        - Day
+        - Month
+        - Year
+        - lag1: a day after the present (t+1)
+        - lag2: a day after the present (t+2)
+        - lag3: a day after the present (t+3)
+
+    - I had to scale the data down since I had decided to use NeuralNetwork for training.
+
+    - Utilizing timeseries data, I constructed X and Y as follows: X represents data arranged in a predetermined sequence of days, and Y denotes the day following the set. The term for this set is "lookback set."
+
+
+<br/>
+
+3. **Model training**:
+<br/>   
+    - For the purpose of training model on the given data, I decided to use the following algorithm:
+        - RNN
+        - LSTM
+        - LSTM-CNN
+        - GRU-CNN
+        - XGBoost
+
+    - After training and Hyperamater tuning, I decieded to go with LSTM-CNN on the basis of erros and whether the models were overfitting or underfitting
+
+    - As mentioned in the preceding section, overfitting of models is a possibility. To counter that circumstance, I employed:
+        
+        - Early stopping
+        - Dropout layer
+    
+    - I also implemented Learning rate decay for better performance.
+</br>
+
+4. **Model Evaluating**:
+
+    - For Evaluation purposes,  I chose Root Mean squared error(RMSE) which is good for Regression task like these.
+
+## CI/CD pipeline:
+
+   <p> I have also implemented CI/CD pipeline using github actions, AWS ECR(for storing the docker image) and EC2 for Deployment. So, whenever I do a commmit it is automatically deployed on EC2 instance.
+
+   The implementation code is in .github\workflows\main.yaml . If you are interested in how does it work and also I have given instructions.
+</p>
+
+## Research:
+ 
+<p>      This is the director where I have done most of the research work or implemented pipline code before it being modularized. It will also give you an idea of how the pipeline works.
+</p>
+
+## Artifacts:
+
+<p>     This folder is created after code is run once. I have not included it in git since it a folder where Data and models are store. Something these data and models can be large which can cause problems when uploading to repositories. One more way was to use DVC but since data wasn't that big . So I droppe dthe plan.
+</p>
 
 ## Workflows
 
@@ -13,6 +101,11 @@
 
 
 # How to run?
+
+# Please have internet connection
+
+**Since the data is not included the git file** 
+
 ### STEPS:
 
 Clone the repository
