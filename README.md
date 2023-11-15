@@ -12,18 +12,11 @@ Prior to that, allow me to elucidate the reasoning that underpins my proposed so
 # Please have internet connection
 
 **Since the data is not included the git file** 
-### Steps for doker
+### Steps for docker
 Clone the repository
 
 ```bash
-https://github.com/SaiShashank12/fetch_assessment
-```
-### STEPS:
-
-Clone the repository
-
-```bash
-https://github.com/SaiShashank12/fetch_assessment
+git clone https://github.com/SaiShashank12/fetch_assessment.git
 ```
 ### Step 01- change the directory
 
