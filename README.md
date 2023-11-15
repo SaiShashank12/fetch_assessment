@@ -6,6 +6,7 @@ In addition to applying the MLops principle, I have implemented a comprehensive 
 
 Prior to that, allow me to elucidate the reasoning that underpins my proposed solution.
 
+![](https://github.com/SaiShashank12/fetch_assessment/blob/main/images/fetch-training.png)
 
 # How to run?
 
@@ -39,45 +40,6 @@ Now open browser to this address,
 ```bash
 http://localhost:8501/
 ```
-
-## Steps for without docker implementation
-
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n forcast python=3.8 -y
-```
-
-```bash
-conda activate forcast
-```
-
-
-### STEP 02- install the requirements
-```bash
-pip install -r requirements.txt
-```
-
-
-```bash
-# Finally run the following command
-python app.py
-```
-
-Now,
-```bash
-open up you local host and port
-```
-
-
-```bash
-Author: Sai Shashank Mudliar
-Data Scientist
-Email: shashanksai@gmail.com
-
-```
-
-
 
 # Steps for AWS-CICD-Deployment-with-Github-Actions
 
@@ -150,7 +112,45 @@ Email: shashanksai@gmail.com
     AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = simple-app
-    
+
+## Steps for without docker implementation
+
+### STEP 01- Create a conda environment after opening the repository
+
+```bash
+conda create -n forcast python=3.8 -y
+```
+
+```bash
+conda activate forcast
+```
+
+
+### STEP 02- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+
+```bash
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash
+open up you local host and port
+```
+
+
+```bash
+Author: Sai Shashank Mudliar
+Data Scientist
+Email: shashanksai@gmail.com
+
+```
+
+
 ## Proposed Solution Overview and Rationalization
 
 When I got hands on the data I had the did 4 basic steps in ML which are as follows:
