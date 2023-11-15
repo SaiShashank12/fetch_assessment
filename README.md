@@ -18,16 +18,16 @@
 Clone the repository
 
 ```bash
-https://github.com/entbappy/End-to-end-Text-Summarization
+https://github.com/SaiShashank12/fetch_assessment
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n summary python=3.8 -y
+conda create -n forcast python=3.8 -y
 ```
 
 ```bash
-conda activate summary
+conda activate forcast
 ```
 
 
